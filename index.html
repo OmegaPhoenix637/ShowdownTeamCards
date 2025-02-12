@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Scaling Cubes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <div class="rectangle">
+      <!-- Top-left number display -->
+      <div class="top-left-number" onclick="changeNumbers(event)" id="topNumber">6</div>
+
+      <!-- Clickable button above cubes (opens the background selection menu) -->
+      <button class="action-button" onclick="performAction()"></button>
+
+      <!-- Background selection menu (hidden by default via CSS) -->
+      <div id="backgroundMenu" class="background-menu">
+        <button class="bg-button" data-bg="card.png" style="background-image: url('redteam.png');"></button>
+        <button class="bg-button" data-bg="card2.png" style="background-image: url('orangeteam.png');"></button>
+        <button class="bg-button" data-bg="yellowteam.png" style="background-image: url('yellowteam.png');"></button>
+        <button class="bg-button" data-bg="limeteam.png" style="background-image: url('limeteam.png');"></button>
+        <button class="bg-button" data-bg="greenteam.png" style="background-image: url('greenteam.png');"></button>
+        <button class="bg-button" data-bg="cyanteam.png" style="background-image: url('cyanteam.png');"></button>
+        <button class="bg-button" data-bg="aquateam.png" style="background-image: url('aquateam.png');"></button>
+        <button class="bg-button" data-bg="blueteam.png" style="background-image: url('blueteam.png');"></button>
+        <button class="bg-button" data-bg="purpleteam.png" style="background-image: url('purpleteam.png');"></button>
+        <button class="bg-button" data-bg="pinkteam.png" style="background-image: url('pinkteam.png');"></button>
+      </div>
+
+      <!-- Cubes and their names -->
+      <div class="cubes-container">
+        <div class="cube" data-cube-id="1" onclick="openCubeModal(this)"></div>
+        <div class="cube" data-cube-id="2" onclick="openCubeModal(this)"></div>
+        <div class="cube" data-cube-id="3" onclick="openCubeModal(this)"></div>
+        <div class="cube" data-cube-id="4" onclick="openCubeModal(this)"></div>
+      </div>
+      <div class="names-container">
+        <div class="name" onclick="editName(this)">Name 1</div>
+        <div class="name" onclick="editName(this)">Name 2</div>
+        <div class="name" onclick="editName(this)">Name 3</div>
+        <div class="name" onclick="editName(this)">Name 4</div>
+      </div>
+
+      <!-- Two centered numbers below cubes -->
+      <div class="bottom-numbers">
+        <div class="number-box" id="bottomNumber1">6</div>
+        <div class="number-box" id="bottomNumber2">6</div>
+      </div>
+
+    </div>
+    <div class="btn-circle-download">
+      <svg id="arrow" width="14px" height="20px" viewBox="17 14 14 20">
+        <path d="M24,15 L24,32"></path>
+        <polyline points="30 27 24 33 18 27"></polyline>
+      </svg>
+      <svg id="check" width="21px" height="15px" viewBox="13 17 21 15">
+        <polyline points="32.5 18.5 20 31 14.5 25.5"></polyline>
+      </svg>
+      <svg  id="border" width="48px" height="48px" viewBox="0 0 48 48">
+        <path d="M24,1 L24,1 L24,1 C36.7025492,1 47,11.2974508 47,24 L47,24 L47,24 C47,36.7025492 36.7025492,47 24,47 L24,47 L24,47 C11.2974508,47 1,36.7025492 1,24 L1,24 L1,24 C1,11.2974508 11.2974508,1 24,1 L24,1 Z"></path>
+      </svg>
+    </div>
+
+    <!-- Cube Modal (Customization Panel) -->
+    <div id="cubeModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeCubeModal()">&times;</span>
+        <h2>Customize Cube</h2>
+        <!-- Image Upload -->
+        <div class="image-upload-section">
+          <h3>Upload Custom Image</h3>
+          <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(this)">
+          <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
+        </div>
+        <!-- Name Selection -->
+        <div class="name-selection-section">
+          <h3>Select Roster Player</h3>
+          <input type="text" id="nameSearch" placeholder="Search Roster Players" oninput="filterNames()">
+          <div class="name-list" id="nameList">
+            <!-- Names will be populated here -->
+          </div>
+        </div>
+        <button onclick="applyCubeChanges()">Apply Changes</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+:root {
+  --base-width: 1920;
+  --base-height: 1080;
+  --scale-factor: 1;
+  --button-x: 50%;
+  --button-y: 16.5%;
+  --button-scale: 3;
+  --bottom-number-x: 50%;
+  --bottom-number-y: 84.5%;
+  --bottom-number-scale: 1.1;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url('stripes.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.container {
+  width: calc(var(--base-width) * var(--scale-factor) * 1px);
+  height: calc(var(--base-height) * var(--scale-factor) * 1px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Top-left number display with animation */
+.top-left-number {
+  cursor: pointer;
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: rgb(215, 178, 39);
+  position: absolute;
+  top: calc(29 * var(--scale-factor) * 1px);
+  left: calc(-5 * var(--scale-factor) * 1px);
+  font-size: calc(48 * var(--scale-factor) * 1px);
+  font-weight: bold;
+  background: transparent;
+  padding: calc(10 * var(--scale-factor) * 1px);
+  border: 0;
+  width: calc(100 * var(--scale-factor) * 1px);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.top-left-number:hover {
+  transform: scale(1.1);
+}
+
+.top-left-number.animate {
+  animation: numberSwitch 0.3s ease;
+}
+@keyframes numberSwitch {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Rectangle Card */
+.rectangle {
+  width: calc(1728 * var(--scale-factor) * 1px);
+  height: calc(972 * var(--scale-factor) * 1px);
+  background-image: url('card.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: calc(0 * var(--scale-factor) * 1px) solid #ccc;
+  box-shadow: calc(4 * var(--scale-factor) * 1px) calc(10 * var(--scale-factor) * 1px) rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* --- Added perspective for 3D hover effects --- */
+}
+
+/* Action Button */
+.action-button {
+  width: calc(350 * var(--scale-factor) * 1px);
+  height: calc(50 * var(--scale-factor) * 1px);
+  position: absolute;
+  top: var(--button-y);
+  left: var(--button-x);
+  transform: translate(-50%, -50%) scale(var(--button-scale));
+  font-size: calc(28 * var(--scale-factor) * 1px);
+  padding: calc(10 * var(--scale-factor) * 1px) calc(30 * var(--scale-factor) * 1px);
+  border-radius: 0;
+  background-color: #b6a89e00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-bottom: calc(70 * var(--scale-factor) * 1px);
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
+.action-button:hover {
+  background-color: rgba(167, 140, 140, 0.2);
+  border-radius: 8px;
+}
+
+/* Cubes Container & Cubes */
+.cubes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(61 * var(--scale-factor) * 1px);
+  margin-top: calc(5 * var(--scale-factor) * 1px);
+}
+
+/* Base Cube Styles */
+.cube {
+  width: calc(331 * var(--scale-factor) * 1px);
+  height: calc(331 * var(--scale-factor) * 1px);
+  background-color: #007bff00;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Enable 3D transforms and transitions */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Predefined cube images */
+.cube:nth-child(1) { background-image: url('empty.png'); }
+.cube:nth-child(2) { background-image: url('empty.png'); }
+.cube:nth-child(3) { background-image: url('empty.png'); }
+.cube:nth-child(4) { background-image: url('empty.png'); }
+
+/* --- SUPER COOL 3D Hover Effect for Cubes --- */
+.cube:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+}
+
+.cube:hover::after {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  border: 2px solid rgba(0, 123, 255, 0.8);
+  border-radius: 10px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Names Container & Names */
+.names-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(53 * var(--scale-factor) * 1px);
+  margin-top: calc(60 * var(--scale-factor) * 1px);
+}
+.name {
+  font-size: calc(22 * var(--scale-factor) * 1px);
+  font-weight: 800;
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: #000;
+  cursor: pointer;
+  padding: calc(5 * var(--scale-factor) * 1px);
+  border-radius: calc(5 * var(--scale-factor) * 1px);
+  transition: all 0.3s ease;
+  width: calc(330 * var(--scale-factor) * 1px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.name:hover {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  transform: scale(1.2) translateY(calc(-3 * var(--scale-factor) * 1px));
+  box-shadow: 0 calc(4 * var(--scale-factor) * 1px) calc(6 * var(--scale-factor) * 1px) rgba(0, 0, 0, 0.1);
+}
+.name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(2 * var(--scale-factor) * 1px);
+  background-color: transparent;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.name:hover::after {
+  transform: scaleX(1);
+}
+.name-list div.selected {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Bottom number boxes */
+.bottom-numbers {
+  color: rgb(215, 178, 39);
+  font-family: 'Arial Black', Arial, sans-serif;
+  position: absolute;
+  top: var(--bottom-number-y);
+  left: var(--bottom-number-x);
+  transform: translate(-50%, -50%) scale(var(--bottom-number-scale));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(100 * var(--scale-factor) * 1px);
+  margin-top: calc(50 * var(--scale-factor) * 1px);
+}
+.number-box {
+  font-size: calc(48 * var(--scale-factor) * 1px);
+  font-weight: bold;
+  background: transparent;
+  padding: calc(24 * var(--scale-factor) * 1px);
+  border: 0;
+  width: calc(100 * var(--scale-factor) * 1px);
+  text-align: center;
+}
+
+/* Background Selection Menu */
+.background-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.9);
+  padding: calc(20 * var(--scale-factor) * 1px);
+  border-radius: calc(8 * var(--scale-factor) * 1px);
+  box-shadow: 0 calc(4 * var(--scale-factor) * 1px) calc(8 * var(--scale-factor) * 1px) rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: calc(10 * var(--scale-factor) * 1px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.background-menu.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+.bg-button {
+  width: calc(80 * var(--scale-factor) * 1px);
+  height: calc(80 * var(--scale-factor) * 1px);
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(40 * var(--scale-factor) * 1px);
+  line-height: 1;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.bg-button.clicked {
+  animation: buttonClick 0.3s forwards;
+}
+@keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Modal (Customization Cube) Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: calc(2 * var(--scale-factor) * 1px) solid transparent;
+  border-radius: calc(8 * var(--scale-factor) * 1px);
+  background-clip: padding-box;
+  position: absolute;
+  width: calc(300 * var(--scale-factor) * 1px);
+  padding: calc(20 * var(--scale-factor) * 1px);
+  box-shadow: 0 calc(8 * var(--scale-factor) * 1px) calc(16 * var(--scale-factor) * 1px) rgba(0,0,0,0.3);
+  animation: modalSlideIn 0.1s ease-out;
+}
+
+.modal-content:before {
+  content: "";
+  position: absolute;
+  top: calc(-2 * var(--scale-factor) * 1px);
+  left: calc(-2 * var(--scale-factor) * 1px);
+  right: calc(-2 * var(--scale-factor) * 1px);
+  bottom: calc(-2 * var(--scale-factor) * 1px);
+  z-index: -1;
+  background: linear-gradient(45deg, #ffffff00, #ffffffe0);
+  border-radius: calc(10 * var(--scale-factor) * 1px);
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #aaa;
+  font-size: calc(32 * var(--scale-factor) * 1px);
+  font-weight: bold;
+  padding: calc(5 * var(--scale-factor) * 1px);
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* Image Upload Section */
+.image-upload-section {
+  margin-bottom: calc(20 * var(--scale-factor) * 1px);
+}
+
+/* Name Selection Section */
+.name-selection-section {
+  margin-bottom: calc(20 * var(--scale-factor) * 1px);
+}
+
+.name-list {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: calc(18 * var(--scale-factor) * 1px);
+  max-height: calc(170 * var(--scale-factor) * 1px);
+  overflow-y: auto;
+  border: calc(1 * var(--scale-factor) * 1px) solid #ccc;
+  padding: calc(5 * var(--scale-factor) * 1px);
+}
+
+.name-list div {
+  padding: calc(5 * var(--scale-factor) * 1px);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.name-list div:hover {
+  background-color: #e0e0e0;
+}
+
+#imagePreview {
+  max-width: calc(120 * var(--scale-factor) * 1px);
+  max-height: calc(120 * var(--scale-factor) * 1px);
+}
+
+@keyframes modalSlideIn {
+  from { transform: translateY(calc(-20 * var(--scale-factor) * 1px)); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Fade Out Animation for Modal */
+@keyframes modalFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(calc(-20 * var(--scale-factor) * 1px)); }
+}
+
+.download-button {
+  position: absolute;
+  bottom: calc(20 * var(--scale-factor) * 1px);
+  right: calc(20 * var(--scale-factor) * 1px);
+  padding: calc(10 * var(--scale-factor) * 1px) calc(20 * var(--scale-factor) * 1px);
+  font-size: calc(16 * var(--scale-factor) * 1px);
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: calc(5 * var(--scale-factor) * 1px);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
+
+/* Download Button Styles */
+.btn-circle-download {
+  position: absolute; /* changed from relative to absolute */
+  bottom: calc(550 * var(--scale-factor) * 1px); /* Adjust as needed */
+  right: calc(-75 * var(--scale-factor) * 1px); /* Adjust as needed */
+  height: calc(92 * var(--scale-factor) * 1px); /* Scaling */
+  width: calc(92 * var(--scale-factor) * 1px);  /* Scaling */
+  margin: auto;
+  border-radius: 100%;
+  background: #252525;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .2s ease;
+  z-index: 10; /* ensure the button is above the rectangle */
+  display: flex;    
+}
+
+.btn-circle-download:after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 200%;
+  height: 100%;
+  background-image: linear-gradient(100deg, rgba(white,0), rgba(white,.25),rgba(white,0));
+  transform: translateX(-100%);
+}
+
+.btn-circle-download svg {
+  stroke-width: calc(2 * var(--scale-factor) * 1px); /* Scaling */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.btn-circle-download #border {
+  position: absolute;
+  top: 20;
+  left: 20;
+  stroke: none;
+  stroke-dasharray: 144;
+  stroke-dashoffset: 144;
+  transition: all .9s linear;
+  width: calc(92 * var(--scale-factor) * 1px); /* Scaling */
+  height: calc(92 * var(--scale-factor) * 1px); /* Scaling */
+}
+
+.btn-circle-download #arrow {
+  position: absolute;
+  top: calc(21 * var(--scale-factor) * 1px); /* Scaling */
+  left: calc(23 * var(--scale-factor) * 1px); /* Scaling */
+  stroke: #eeff00;
+  transition: all .2s ease;
+  height: calc(46 * var(--scale-factor) * 1px); /* Scaling */
+  width: calc(46 * var(--scale-factor) * 1px);  /* Scaling */
+}
+
+.btn-circle-download #check {
+  position: absolute;
+  top: calc(21 * var(--scale-factor) * 1px); /* Scaling */
+  left: calc(23 * var(--scale-factor) * 1px); /* Scaling */
+  stroke: #252525;;
+  transform: scale(0);
+  height: calc(46 * var(--scale-factor) * 1px); /* Scaling */
+  width: calc(46 * var(--scale-factor) * 1px);  /* Scaling */
+}
+
+.btn-circle-download:hover {
+  background: rgba(34, 34, 34, 0.8)
+}
+
+.btn-circle-download:hover #arrow path,
+.btn-circle-download:hover #arrow polyline {
+  stroke: #1a1a1a;
+}
+
+.btn-circle-download.load {
+  background: rgba(24, 24, 24, 0.2);
+}
+
+.btn-circle-download.load #arrow path,
+.btn-circle-download.load #arrow polyline {
+  stroke: #1a1a1a;
+}
+
+.btn-circle-download.load #border {
+  stroke: rgb(19, 19, 19);
+  stroke-dasharray: 144;
+  stroke-dashoffset: 0;
+}
+
+.btn-circle-download.done {
+  background: rgb(255, 255, 0);;
+  animation: rubberBand .8s;
+}
+
+.btn-circle-download.done:after {
+  transform: translateX(50%);
+  transition: transform .4s ease;
+  transition-delay: .7s;
+}
+
+.btn-circle-download.done #border,
+.btn-circle-download.done #arrow {
+  display: none;
+}
+
+.btn-circle-download.done #check {
+  transform: scale(1);
+  transition: all .2s ease;
+  transition-delay: .2s;
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.15, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.15, 1);
+  }
+  50% {
+    transform: scale3d(1.10, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
