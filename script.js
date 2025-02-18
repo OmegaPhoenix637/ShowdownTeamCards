@@ -142,23 +142,21 @@ const allNames = [
   { id: "546670147599859712", name: "Szabi" },
   { id: "717053122136113192", name: "Pinki" },
   { id: "353288215454547977", name: "Caleb" },
-  /*
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" },
-  { id: "887464438196756531", name: "Toast" }
-   */
+  
+  { id: "945881174516064288", name: "Rn" },
+  { id: "801706397221257257", name: "Turxe" },
+  { id: "447395769201459220", name: "Caiiz" },
+  { id: "883710962732003329", name: "Zoomer" },
+  { id: "1291507972639559872", name: "BonBon" },
+  { id: "1262013748798033923", name: "Bed" },
+  { id: "932319655589187614", name: "ButtNugget14" },
+  { id: "766662595452338186", name: "Krys" },
+  { id: "822491253219786762", name: "Pokefan" },
+  { id: "502869784854265867", name: "Morph" },
+  { id: "452551597105610753", name: "AlexBelgium" },
+  { id: "925235021139296349", name: "Trilu" },
+  { id: "564155229575184416", name: "Yeetus" }
+   
 ];
 
 // Open the modal for a cube and position it using the current scale factor

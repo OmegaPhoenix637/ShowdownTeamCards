@@ -3,7 +3,7 @@
   --base-height: 1080;
   --scale-factor: 1;
   --button-x: 50%;
-  --button-y: 16.5%;
+  --button-y: 18%;
   --button-scale: 3;
   --bottom-number-x: 50%;
   --bottom-number-y: 84.5%;
@@ -41,7 +41,7 @@ body, html {
   color: rgb(215, 178, 39);
   position: absolute;
   top: calc(29 * var(--scale-factor) * 1px);
-  left: calc(-5 * var(--scale-factor) * 1px);
+  left: calc(26 * var(--scale-factor) * 1px);
   font-size: calc(48 * var(--scale-factor) * 1px);
   font-weight: bold;
   background: transparent;
@@ -116,14 +116,15 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: calc(61 * var(--scale-factor) * 1px);
-  margin-top: calc(5 * var(--scale-factor) * 1px);
+  gap: calc(92 * var(--scale-factor) * 1px);
+  margin-top: calc(-52 * var(--scale-factor) * 1px);
+  margin-bottom: calc(0 * var(--scale-factor) * 1px); /* Add margin at the bottom */
 }
 
 /* Base Cube Styles */
 .cube {
-  width: calc(331 * var(--scale-factor) * 1px);
-  height: calc(331 * var(--scale-factor) * 1px);
+  width: calc(300 * var(--scale-factor) * 1px);
+  height: calc(302 * var(--scale-factor) * 1px);
   background-color: #007bff00;
   cursor: pointer;
   background-size: cover;
@@ -179,23 +180,31 @@ body, html {
 .names-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top */
   gap: calc(53 * var(--scale-factor) * 1px);
-  margin-top: calc(60 * var(--scale-factor) * 1px);
+  position: absolute; /* Position absolutely */
+  bottom: calc(200 * var(--scale-factor) * 1px); /* Adjust as needed */
+  left: 0;
+  right: 0;
 }
+
 .name {
   font-size: calc(22 * var(--scale-factor) * 1px);
   font-weight: 800;
   font-family: 'Arial Black', Arial, sans-serif;
   color: #000;
   cursor: pointer;
-  padding: calc(5 * var(--scale-factor) * 1px);
+  padding: calc(10 * var(--scale-factor) * 1px) calc(5 * var(--scale-factor) * 1px);
   border-radius: calc(5 * var(--scale-factor) * 1px);
   transition: all 0.3s ease;
   width: calc(330 * var(--scale-factor) * 1px);
+  height: calc(185 * var(--scale-factor) * 1px);
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .name:hover {
   color: rgb(0, 0, 0);
