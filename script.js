@@ -171,7 +171,8 @@ const allNames = [
   { id: "1307675443964674078", name: "Toblerone" },
   { id: "745268802312208385", name: "FroppyMug" },
   { id: "907752714212089938", name: "Aaron" },
-  { id: "901604507174174731", name: "Pauxilian" }
+  { id: "901604507174174731", name: "Pauxilian" },
+  { id: "468714012562161677", name: "Seth" }
    
 ];
 
