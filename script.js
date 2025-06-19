@@ -142,7 +142,6 @@ const allNames = [
   { id: "994439313876070412", name: "FireBeastMode " },
   { id: "796900695214522389", name: "Photon" },
   { id: "1203185360243400725", name: "qhris" },
-  { id: "616356476478292083", name: "nathy" },
   { id: "741395481342771271", name: "Splashy" },
   { id: "655865092084072468", name: "Axo" },
   { id: "1310995285924642897", name: "Kelly" },
