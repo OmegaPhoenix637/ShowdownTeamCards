@@ -179,6 +179,9 @@ const allNames = [
   { id: "411731263779766273", name: "Lime9" },
   { id: "890725789849493515", name: "Zoomy" },
   { id: "675215561956786203", name: "Hentreeb" },
+  { id: "1244970981555048491", name: "Anna" },
+  { id: "1289171924634566687", name: "Jakoba" },
+  { id: "576600377118556171", name: "OThunderie" },
   { id: "685150773511716878", name: "4ler" }
    
 ];
@@ -416,4 +419,5 @@ downloadButton.addEventListener('click', function() {
 // Call updateScaling initially and whenever the window resizes
 updateScaling();
 window.addEventListener('resize', updateScaling);
+
 
