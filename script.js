@@ -182,7 +182,25 @@ const allNames = [
   { id: "1244970981555048491", name: "Anna" },
   { id: "1289171924634566687", name: "Jakoba" },
   { id: "576600377118556171", name: "OThunderie" },
-  { id: "685150773511716878", name: "4ler" }
+  { id: "685150773511716878", name: "4ler" },
+  { id: "576600377118556171", name: "OThunderie" },
+  { id: "1008407738788880444", name: "Lazy" },
+  { id: "927172440793157633", name: "Melon" },
+  { id: "1290551770866516022", name: "Lscm" },
+  { id: "805491121597186059", name: "Orlixx" },
+  { id: "797109978397802556", name: "Robot" },
+  { id: "960068001003081728", name: "Patatez" },
+  { id: "563465692419063828", name: "Snod" },
+  { id: "1315473464991154226", name: "Dell" },
+  { id: "173452100057956352", name: "Accappy" },
+  { id: "1250016868400365580", name: "Junaiper" },
+  { id: "880811662762999859", name: "Cbop" },
+  { id: "1055859529188917310", name: "Evil Alex" },
+  { id: "855161162055417896", name: "Thunder" },
+  { id: "711526880980762637", name: "Hoainoi" },
+  { id: "1051288522847440906", name: "Rez" },
+  { id: "452551597105610753", name: "Alex Belgium" },
+  { id: "764594511888121878", name: "ItsFuriousElf" }
    
 ];
 
@@ -419,5 +437,6 @@ downloadButton.addEventListener('click', function() {
 // Call updateScaling initially and whenever the window resizes
 updateScaling();
 window.addEventListener('resize', updateScaling);
+
 
 
